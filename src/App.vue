@@ -100,6 +100,13 @@
             </v-list-item-icon>
             <v-list-item-title>Earth2</v-list-item-title>
           </v-list-item>
+
+          <v-list-item @click="moveTo('Three')">
+            <v-list-item-icon>
+              <v-icon>mdi-chat</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Three</v-list-item-title>
+          </v-list-item>
         </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
@@ -191,17 +198,7 @@ export default {
       }
     },
   },
-  mounted() {
-    this.$http
-      .get(Constant.URL_LOGIN, { "Content-Type": "application-json" })
-      .then((res) => {
-        console.log("check login:", res.data.logined);
-        this.isLogined = res.data.logined;
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  },
+  mounted() {},
   computed: {
     loading() {
       return this.$store.getters.getGlobalLoadingFlag;
@@ -252,6 +249,17 @@ export default {
     },
     moveTo(pageName) {
       this.$router.push({ name: pageName });
+    },
+    checkLogin() {
+      this.$http
+        .get(Constant.URL_LOGIN, { "Content-Type": "application-json" })
+        .then((res) => {
+          console.log("check login:", res.data.logined);
+          this.isLogined = res.data.logined;
+        })
+        .catch((err) => {
+          console.error(err);
+        });
     },
   },
 };

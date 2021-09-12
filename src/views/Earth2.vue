@@ -93,12 +93,14 @@ export default {
       var new_tile_price = [];
       var marketplace_tile_value = [];
       var total_sold_tiles = [];
+      var usdkrw = [];
 
       this.chartData.forEach((element) => {
         labels.push(this.getTimeStamp(new Date(element.time)));
         new_tile_price.push(element.new_tile_price);
         marketplace_tile_value.push(element.marketplace_tile_value);
         total_sold_tiles.push(element.total_sold_tiles);
+        usdkrw.push(element.usdkrw)
       });
 
       this.chart.data = {
@@ -117,6 +119,13 @@ export default {
             data: marketplace_tile_value,
             fill: false,
             borderColor: "rgb(0, 255, 0)",
+          },
+          {
+            label: "환율",
+            yAxisID: "A",
+            data: usdkrw,
+            fill: false,
+            borderColor: "rgb(0, 0, 255)",
           },
           {
             label: "매도타일수",

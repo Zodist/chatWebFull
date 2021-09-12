@@ -12,6 +12,7 @@
     "chart.js": "^2.9.4",
     "core-js": "^3.6.5",
     "socket.io-client": "^2.1.1",
+    "three": "^0.131.3",
     "vue": "^2.6.11",
     "vue-router": "^3.5.1",
     "vuetify": "^2.4.0",
